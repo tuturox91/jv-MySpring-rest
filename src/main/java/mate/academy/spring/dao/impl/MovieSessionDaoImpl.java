@@ -8,41 +8,20 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import mate.academy.spring.dao.AbstractDao;
 import mate.academy.spring.dao.MovieSessionDao;
 import mate.academy.spring.exception.DataProcessingException;
 import mate.academy.spring.model.MovieSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MovieSessionDaoImpl implements MovieSessionDao {
+public class MovieSessionDaoImpl extends AbstractDao<MovieSession> implements MovieSessionDao {
     private static final LocalTime END_OF_DAY = LocalTime.of(23, 59, 59);
-    @Autowired
-    private SessionFactory sessionFactory;
 
-    @Override
-    public MovieSession add(MovieSession movieSession) {
-        Transaction transaction = null;
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
-            transaction = session.beginTransaction();
-            session.save(movieSession);
-            transaction.commit();
-            return movieSession;
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            throw new DataProcessingException("Can't insert movie session" + movieSession, e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+    public MovieSessionDaoImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
     }
 
     @Override
