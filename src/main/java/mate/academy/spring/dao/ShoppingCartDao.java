@@ -1,6 +1,5 @@
 package mate.academy.spring.dao;
 
-import mate.academy.spring.dao.impl.ShoppingCartDaoImpl;
 import mate.academy.spring.model.ShoppingCart;
 import mate.academy.spring.model.User;
 
