@@ -4,10 +4,8 @@ import mate.academy.spring.exception.DataProcessingException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.stereotype.Component;
 
-@Component
-public class AbstractDao<T> implements GenericDao<T> {
+public abstract class AbstractDao<T> implements GenericDao<T> {
     protected final SessionFactory sessionFactory;
 
     public AbstractDao(SessionFactory sessionFactory) {
