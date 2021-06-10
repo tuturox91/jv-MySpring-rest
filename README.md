@@ -14,7 +14,7 @@ Create controllers:
     - Update movie session - PUT /movie-sessions/{id}
     - Remove movie session - DELETE /movie-sessions/{id}
 - Expecting to see the DTO objects for request and response in the controllers
-- If some DAO methods are absent - implement them.
+- If some DAO or service methods are absent - implement them.
 
 Hints:
 1. Do not pass Entity as a `@RequestBody`. Use DTO projection instead.
