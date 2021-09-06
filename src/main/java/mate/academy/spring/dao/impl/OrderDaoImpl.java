@@ -21,8 +21,8 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     public List<Order> getOrdersHistory(User user) {
         try (Session session = sessionFactory.openSession()) {
             Query<Order> query = session.createQuery("FROM Order o "
-                    + "left join fetch o.tickets "
-                    + "left join fetch o.user "
+                    + "JOIN FETCH o.tickets "
+                    + "JOIN FETCH o.user "
                     + "WHERE o.user = :user", Order.class);
             query.setParameter("user", user);
             return query.getResultList();
