@@ -41,7 +41,7 @@ public class ShoppingCartDaoImpl extends AbstractDao<ShoppingCart> implements Sh
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new DataProcessingException("Cannot create shopping cart ", e);
+            throw new DataProcessingException("Cannot update shopping cart ", e);
         }
     }
 }
