@@ -15,9 +15,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    private CinemaHall cinemaHall;
-    @ManyToOne
-    private Movie movie;
+    private MovieSession movieSession;
     @ManyToOne
     private User user;
     private LocalDateTime showTime;
@@ -30,20 +28,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public MovieSession getMovieSession() {
+        return movieSession;
     }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    public CinemaHall getCinemaHall() {
-        return cinemaHall;
-    }
-
-    public void setCinemaHall(CinemaHall cinemaHall) {
-        this.cinemaHall = cinemaHall;
+    public void setMovieSession(MovieSession movieSession) {
+        this.movieSession = movieSession;
     }
 
     public LocalDateTime getShowTime() {
@@ -65,7 +55,7 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" + "id=" + id
-                + ", cinemaHall=" + cinemaHall + ", movie=" + movie
+                + ", movieSession=" + movieSession
                 + ", user=" + user + ", showTime=" + showTime + '}';
     }
 }
