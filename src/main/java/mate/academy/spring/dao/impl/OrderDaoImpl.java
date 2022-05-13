@@ -20,10 +20,11 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     @Override
     public List<Order> getOrdersHistory(User user) {
         try (Session session = sessionFactory.openSession()) {
-            Query<Order> query = session.createQuery("FROM Order o "
-                    + "JOIN FETCH o.tickets "
-                    + "JOIN FETCH o.user "
-                    + "WHERE o.user = :user", Order.class);
+            Query<Order> query = session.createQuery("select distinct o "
+                    + "from Order o "
+                    + "join fetch o.tickets "
+                    + "join fetch o.user "
+                    + "where o.user = :user", Order.class);
             query.setParameter("user", user);
             return query.getResultList();
         } catch (Exception e) {
