@@ -1,6 +1,5 @@
 package mate.academy.spring.model;
 
-import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +17,6 @@ public class Ticket {
     private MovieSession movieSession;
     @ManyToOne
     private User user;
-    private LocalDateTime showTime;
 
     public Long getId() {
         return id;
@@ -36,14 +34,6 @@ public class Ticket {
         this.movieSession = movieSession;
     }
 
-    public LocalDateTime getShowTime() {
-        return showTime;
-    }
-
-    public void setShowTime(LocalDateTime showTime) {
-        this.showTime = showTime;
-    }
-
     public User getUser() {
         return user;
     }
@@ -56,6 +46,7 @@ public class Ticket {
     public String toString() {
         return "Ticket{" + "id=" + id
                 + ", movieSession=" + movieSession
-                + ", user=" + user + ", showTime=" + showTime + '}';
+                + ", user=" + user
+                + '}';
     }
 }
