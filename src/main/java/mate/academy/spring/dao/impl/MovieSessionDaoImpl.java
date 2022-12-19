@@ -63,22 +63,21 @@ public class MovieSessionDaoImpl extends AbstractDao<MovieSession> implements Mo
     public MovieSession update(MovieSession movieSession) {
         Session session = null;
         Transaction transaction = null;
-        try{
+        try {
             session = sessionFactory.openSession();
             transaction = session.beginTransaction();
             session.update(movieSession);
             transaction.commit();
         } catch (Exception e) {
-            if(transaction != null) {
+            if (transaction != null) {
                 transaction.rollback();
             }
             throw new DataProcessingException("Can't update a movie session: " + movieSession, e);
         } finally {
-            if(session != null) {
+            if (session != null) {
                 session.close();
             }
         }
-
         return movieSession;
     }
 
@@ -86,7 +85,7 @@ public class MovieSessionDaoImpl extends AbstractDao<MovieSession> implements Mo
     public void delete(Long id) {
         Session session = null;
         Transaction transaction = null;
-        try{
+        try {
             session = sessionFactory.openSession();
             transaction = session.beginTransaction();
             session.createQuery("DELETE FROM MovieSession WHERE id = :id")
@@ -94,16 +93,14 @@ public class MovieSessionDaoImpl extends AbstractDao<MovieSession> implements Mo
                     .executeUpdate();
             transaction.commit();
         } catch (Exception e) {
-            if(transaction != null) {
+            if (transaction != null) {
                 transaction.rollback();
             }
             throw new DataProcessingException("Can't delete a movie session by id " + id, e);
         } finally {
-            if(session != null) {
+            if (session != null) {
                 session.close();
             }
         }
     }
-
-
 }
