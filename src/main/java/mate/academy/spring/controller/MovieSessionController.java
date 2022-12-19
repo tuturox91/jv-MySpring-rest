@@ -1,8 +1,8 @@
 package mate.academy.spring.controller;
 
 import mate.academy.spring.model.MovieSession;
-import mate.academy.spring.model.dto.MovieSessionRequestDto;
-import mate.academy.spring.model.dto.MovieSessionResponseDto;
+import mate.academy.spring.model.dto.request.MovieSessionRequestDto;
+import mate.academy.spring.model.dto.response.MovieSessionResponseDto;
 import mate.academy.spring.service.MovieSessionService;
 import mate.academy.spring.service.mapper.MovieSessionMapper;
 import org.springframework.format.annotation.DateTimeFormat;

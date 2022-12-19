@@ -1,4 +1,4 @@
-package mate.academy.spring.model.dto;
+package mate.academy.spring.model.dto.request;
 
 public class MovieRequestDto {
 

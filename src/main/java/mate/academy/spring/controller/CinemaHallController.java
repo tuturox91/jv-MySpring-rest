@@ -1,7 +1,7 @@
 package mate.academy.spring.controller;
 
-import mate.academy.spring.model.dto.CinemaHallRequestDto;
-import mate.academy.spring.model.dto.CinemaHallResponseDto;
+import mate.academy.spring.model.dto.request.CinemaHallRequestDto;
+import mate.academy.spring.model.dto.response.CinemaHallResponseDto;
 import mate.academy.spring.service.CinemaHallService;
 import mate.academy.spring.service.mapper.CinemaHallDtoMapper;
 import org.springframework.web.bind.annotation.GetMapping;

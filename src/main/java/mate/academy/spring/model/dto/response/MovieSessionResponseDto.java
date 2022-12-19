@@ -1,4 +1,4 @@
-package mate.academy.spring.model.dto;
+package mate.academy.spring.model.dto.response;
 
 import mate.academy.spring.model.CinemaHall;
 import mate.academy.spring.model.Movie;
